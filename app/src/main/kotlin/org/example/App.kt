@@ -55,53 +55,69 @@ fun main() {
 // Etapa 1
 fun calcularPromedio(nota1: Double, nota2: Double): Double {
     // Implementar aquí
-    return 0.0
+    val suma = nota1 + nota2
+    val promedio1 = suma / 2
+    return promedio1
 }
 
 fun esAprobado(nota: Double): Boolean {
-    // Implementar aquí
+    if (nota > 6.00) 
+        return true
     return false
 }
 
 // Etapa 2
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
     // Implementar aquí
-    return 0.0
+    val suma = nota1 + nota2 + nota3
+    val promedio1 = suma / 3
+    return promedio1
 }
 
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
     // Implementar aquí
-    return ""
+    val aprodesapro = if (nota > 6.00) "aprobado" else "desaprobado"
+    return("El alumno $nombre $apellido está $aprodesapro")
+    
 }
 
 // Etapa 3
 fun calcularPromedioCurso(notas: List<Double>): Double {
-    // Implementar aquí
-    return 0.0
+    val sumnts = notas.sum()
+    val promedio = sumnts / notas.size
+    return promedio
 }
 
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
-    // Implementar aquí
-    return emptyList()
+    val aprobados = mutableListOf<String>()
+    
+    // Recorrer las listas y guardar los nombres de quienes aprobaron
+    for (i in nombres.indices) {
+        if (notas[i] > 6.00) {
+            aprobados.add(nombres[i])
+        }
+    }
+    return aprobados
 }
 
 // Etapa 4
 fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>): String {
     // Implementar aquí
-    return ""
+    return "el alumno $nombre tiene las siguientes materias: ${materias.joinToString(", ")} con notas ${notas.joinToString(", ")}"
 }
 
 fun obtenerNotaMasAlta(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
+    val notaMasAlta = notas.maxOrNull() ?: 0.0
+    return notaMasAlta
 }
 
 fun obtenerNotaMasBaja(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
+    val notaMasBaja = notas.minOrNull() ?: 0.0
+    return notaMasBaja
 }
-
 fun contarAprobados(notas: List<Double>): Int {
-    // Implementar aquí
-    return 0
+    // Contar las notas mayores a 6.0
+    return notas.count { it > 6.0 }
 }
